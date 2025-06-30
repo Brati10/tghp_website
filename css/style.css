@@ -1,0 +1,892 @@
+/** ========== Basis-Layout ========== **/
+
+body {
+  font-family: "Brush Script MT", "Lucida Handwriting", "Apple Chancery", "Zapf Chancery", "Comic Sans MS", cursive;
+  margin: 0;
+  background-color: #f5faff;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 900px;
+  margin: 2em auto;
+  padding: 0 1em;
+}
+
+.einleitung {
+  text-align: center;
+  max-width: 800px;
+  margin: 2em auto;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-top: 1.5em;
+  background: linear-gradient(to right, #a0c4ff, #0d47a1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  color: #004b7c;
+}
+
+/** ========== Navigation ========== **/
+nav {
+  background-color: #d0e7ff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #003366;
+}
+
+.nav-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-logo span {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.nav-heading {
+  display: block;
+  padding: 0.75em 1em;
+  color: #004b7c;
+  cursor: default;
+}
+
+.nav-heading.active,
+.nav-menu a.active {
+  background-color: #a3d4ff;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 0.75em 1em;
+  display: inline-block;
+}
+
+.nav-heading:hover,
+.nav-menu a:hover {
+  background-color: #b9dbff;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 30px;
+  height: 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 3px;
+  background-color: #003366;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+.nav-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+  -webkit-transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+  -webkit-transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #004b7c;
+  padding: 0.75em 1em;
+  border-radius: 5px;
+  display: block;
+  line-height: 1.4;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.has-submenu .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #e6f3ff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0.5em 0;
+  min-width: 200px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  list-style: none;
+  margin: 0;
+}
+
+.has-submenu:hover .submenu,
+.has-submenu:focus-within .submenu {
+  display: block;
+}
+
+.submenu li a {
+  padding: 0.5em 1.5em;
+}
+
+/** ========== Flex-Layouts ========== **/
+.flex-block,
+.arbeitsweise-flexblock,
+.pflegekinder-bereiche {
+  display: flex;
+  gap: 2em;
+  margin: 2em 0;
+  align-items: stretch;
+}
+.flex-block.right,
+.arbeitsweise-flexblock {
+  flex-direction: row;
+  align-items: center;
+}
+.flex-block.left {
+  flex-direction: row-reverse;
+}
+.flex-block img,
+.arbeitsweise-flexblock .arbeitsweise-image img,
+.pflegekinder-bereich img {
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.flex-block div,
+.arbeitsweise-flexblock .arbeitsweise-text,
+.pflegekinder-bereich-wrapper {
+  flex: 1;
+}
+
+/** ========== Landing-Page ========== **/
+
+.landing-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4em 1em 3em;
+  background: linear-gradient(to bottom, #eaf4ff, #ffffff);
+}
+
+.landing-inner {
+  max-width: 700px;
+  width: 100%;
+}
+
+.landing-logo {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 1.5em;
+  display: block;
+}
+
+.landing-header h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  background: linear-gradient(to right, #90caf9, #1565c0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.landing-subtitle {
+  font-size: 1.2em;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+/* ========== Bildraster ========== */
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin: 2em 0;
+}
+
+.image-grid img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/** ========== Was-ist-Seite ========== **/
+
+.heilpaedagogik-flexblock {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.heilpaedagogik-flexblock.reverse {
+  flex-direction: row-reverse;
+}
+
+.heilpaedagogik-flexblock > * {
+  box-sizing: border-box;
+}
+
+.heilpaedagogik-text {
+  flex: 1 1 65%;
+}
+
+.heilpaedagogik-image {
+  flex: 1 1 30%;
+}
+
+.heilpaedagogik-image img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+/* Mobile Ansicht */
+@media screen and (max-width: 768px) {
+  .heilpaedagogik-flexblock {
+    flex-direction: column;
+  }
+
+  .heilpaedagogik-image,
+  .heilpaedagogik-text {
+    flex: 1 1 100%;
+  }
+
+  .heilpaedagogik-container {
+    padding: 1rem;
+  }
+}
+
+/** ========== Über-mich-Seiten ========== **/
+
+.vision-mission-page-gradient {
+  background: linear-gradient(
+    to bottom,
+    #b9dbff 0%,
+    #ffffff 45%,
+    #ffffff 75%,
+    #b9dbff 100%
+  );
+}
+
+.align-image img {
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vision-block,
+.mission-block {
+  max-width: 800px;
+  margin: 2em auto;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.vision-mission-middle-section > p {
+  line-height: 1.6;
+  text-align: block;
+}
+
+/** ========== Arbeitsweise: allgemeine Abschnitte ========== **/
+
+.arbeitsweise-block {
+  max-width: 800px;
+  margin: 2em auto;
+  line-height: 1.6;
+}
+
+/** ========== Arbeitsweise: Verlinkte Begriffe im Fließtext ========== **/
+.arbeitsweise-link {
+  font-weight: bold;
+  text-decoration: none;
+  color: #004b7c;
+  cursor: pointer;
+  border-bottom: 1px dotted #a0c4ff;
+}
+
+.arbeitsweise-link:hover {
+  text-decoration: underline;
+}
+
+/** ========== Arbeitsweise: Flex-Abschnitt mit Bild in der Mitte ========== **/
+.arbeitsweise-flexblock {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2em;
+  margin: 2em 0;
+}
+
+.arbeitsweise-flexblock .arbeitsweise-text:first-child {
+  flex: 1 1 27%;
+}
+
+.arbeitsweise-flexblock .arbeitsweise-image {
+  flex: 0 0 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arbeitsweise-flexblock .arbeitsweise-text:last-child {
+  flex: 1 1 40%;
+}
+
+.arbeitsweise-flexblock .arbeitsweise-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.arbeitsweise-flexblock > .arbeitsweise-image > img {
+  width: 100%;
+}
+
+/** ========== Arbeitsweise: Angebot-Buttonliste ========== **/
+.arbeitsweise-zweispaltig {
+  display: flex;
+  gap: 2em;
+  margin: 3em 0;
+  flex-wrap: wrap; /* wichtig für Mobilansicht */
+}
+
+.arbeitsweise-links {
+  flex: 1 1 60%;
+}
+
+.arbeitsweise-rechts {
+  flex: 1 1 25%;
+}
+
+.arbeitsweise-angebot {
+  max-width: 800px;
+  margin: 3em auto;
+  text-align: center;
+}
+
+.arbeitsweise-angebot h2 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.angebot-buttonliste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.angebot-buttonliste li {
+  margin: 0.5em 0;
+  width: 100%;
+}
+
+.angebot-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.75em 1.2em;
+  background-color: #e6f3ff;
+  color: #004b7c;
+  text-decoration: none;
+  border: 2px solid #a0c4ff;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  font-weight: 500;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.angebot-button:hover,
+.angebot-button:focus {
+  background-color: #d0e7ff;
+  border-color: #4aa3df;
+  outline: none;
+}
+
+.abschnitt-box {
+  background-color: #f7fbff;
+  border: 1px solid #d3e8f7;
+  border-radius: 6px;
+  padding: 1.5em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  max-width: 800px;
+  margin: 2em auto;
+}
+
+/** ========== Responsive: Flexblock auf Mobilansicht umstellen ========== **/
+@media (max-width: 768px) {
+  .arbeitsweise-flexblock {
+    flex-direction: column;
+  }
+
+  .arbeitsweise-flexblock .arbeitsweise-text,
+  .arbeitsweise-flexblock .arbeitsweise-image {
+    flex: 1 1 100%;
+  }
+
+  .arbeitsweise-flexblock .arbeitsweise-image {
+    margin: 1em 0;
+  }
+
+  .arbeitsweise-flexblock > .arbeitsweise-image > img {
+    width: 100%;
+  }
+
+  .arbeitsweise-zweispaltig {
+    flex-direction: column;
+  }
+
+  .arbeitsweise-links,
+  .arbeitsweise-rechts {
+    flex: 1 1 100%;
+  }
+}
+
+/** ========== Angebotsbereiche & Listen ========== **/
+.angebot-bereich,
+.pflegekinder-bereich {
+  background-color: #e9f3ff;
+  padding: 1em;
+  border-radius: 8px;
+  margin: 2em 0;
+  box-sizing: border-box;
+}
+.angebot-bereich h2,
+.pflegekinder-bereich h2,
+.angebot-untertitel {
+  font-size: 1.4em;
+  margin-top: 0;
+  font-weight: bold;
+  text-align: left;
+}
+.angebot-bereich .untertitel,
+.angebot-bereich .angebot-untertitel,
+.angebot-untertitel {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 1em 0 0.5em;
+}
+.angebot-liste {
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 6px;
+  margin: 2em 0 1.5em 0;
+}
+.angebot-liste p,
+.angebot-liste .angebot-punkt,
+.angebot-bereich .angebot-punkt {
+  margin-bottom: 1em;
+  line-height: 1.6;
+}
+.angebot-liste p:last-child,
+.angebot-liste .angebot-punkt:last-child,
+.angebot-bereich .angebot-punkt:last-child {
+  margin-bottom: 0;
+}
+.angebot-liste strong,
+.angebot-bereich .angebot-punkt strong {
+  font-weight: bold;
+  color: #003366;
+  display: inline;
+}
+.angebot-abschluss {
+  border-top: 1px solid #aacce5;
+  margin-top: 2em;
+  padding-top: 1.5em;
+  line-height: 1.6;
+}
+.angebot-intro {
+  max-width: 800px;
+  margin: 2em auto;
+  text-align: center;
+  line-height: 1.6;
+}
+.angebot-unterpunkte {
+  margin-top: 0.5em;
+  margin-left: 1em;
+  padding-left: 0.25em;
+}
+.angebot-unterpunkte p,
+.angebot-unterpunkte li {
+  margin: 0.5em 0;
+  line-height: 1.5;
+  font-size: 0.95em;
+  color: #333;
+}
+.angebot-unterpunkte li {
+  list-style-type: disc;
+  padding-left: 0.25em;
+}
+.angebot-hinweis {
+  margin-top: 1.5em;
+  font-style: italic;
+  background-color: #f0f8ff;
+  padding: 0.75em;
+  border-left: 4px solid #4aa3df;
+  border-radius: 5px;
+}
+
+/** ========== Responsive: Angebotsbereiche & Listen ========== **/
+@media (max-width: 768px) {
+  .angebot-bereich,
+  .pflegekinder-bereich {
+    padding: 1em;
+  }
+  .angebot-bereich h2,
+  .pflegekinder-bereich h2,
+  .angebot-untertitel {
+    font-size: 1.2em;
+  }
+  .angebot-bereich .untertitel,
+  .angebot-untertitel {
+    font-size: 1em;
+  }
+  .angebot-liste {
+    padding: 0.7em;
+  }
+}
+
+/** === Pflegekinder-Zweispaltiges Layout === **/
+.pflegekinder-bereiche {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: space-between;
+  margin: 2em 0;
+  align-items: flex-start;
+}
+
+.pflegekinder-bereich-wrapper {
+  flex: 1 1 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.pflegekinder-bereich {
+  flex: 1 1 48%;
+  background-color: #e9f3ff;
+  padding: 1em;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.pflegekinder-bereich h2 {
+  font-size: 1.4em;
+  margin-top: 0;
+}
+
+.angebot-liste {
+  background-color: #ffffff;
+  padding: 1em;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+}
+
+.angebot-liste .angebot-punkt {
+  margin-bottom: 1em;
+  line-height: 1.6;
+}
+
+.angebot-liste .angebot-punkt strong {
+  display: inline;
+  color: #003366;
+}
+
+/** === Unterstichpunkte === **/
+.angebot-unterpunkte {
+  margin-top: 0.5em;
+  margin-left: 1em;
+  padding-left: 0.25em;
+}
+
+.angebot-unterpunkte p {
+  margin: 0.5em 0;
+  line-height: 1.5;
+  font-size: 0.95em;
+  color: #333;
+}
+
+.angebot-unterpunkte li {
+  margin: 0.3em 0;
+  line-height: 1.5;
+  font-size: 0.95em;
+  color: #333;
+  list-style-type: disc;
+  padding-left: 0.25em;
+}
+
+/** === Responsive Design für Mobile === **/
+@media (max-width: 768px) {
+  .pflegekinder-bereiche {
+    flex-direction: column;
+  }
+
+  .pflegekinder-bereich {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .landing-logo {
+    max-width: 140px;
+    margin-bottom: 1em;
+  }
+
+  .landing-header h1 {
+    font-size: 1.6em;
+  }
+
+  .landing-subtitle {
+    font-size: 1em;
+  }
+}
+
+/** ========== Mobile Anpassungen ========== **/
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex !important;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    appearance: none;
+    user-select: none;
+    position: relative;
+    z-index: 1002;
+  }
+
+  .nav-toggle span {
+    display: block !important;
+    height: 3px;
+    background-color: #003366 !important;
+    border-radius: 2px;
+    transition: 0.3s ease;
+    transform-origin: center;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    padding: 1em;
+    display: none;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    -webkit-overflow-scrolling: touch;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .nav-menu.active {
+    display: flex !important;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .has-submenu .submenu {
+    display: block;
+    position: static;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0.5em 0 0.5em 1rem;
+  }
+
+  .submenu li a {
+    padding-left: 1.5rem;
+  }
+
+  .flex-block {
+    flex-direction: column !important;
+  }
+
+  .flex-block img,
+  .flex-block.right img.smaller-img,
+  .flex-block.right img {
+    width: 100%;
+    height: auto;
+  }
+
+  .align-image {
+    flex-direction: column !important;
+  }
+
+  .align-image img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    margin-bottom: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .landing-logo {
+    max-width: 140px;
+    margin-bottom: 1em;
+  }
+
+  .landing-header h1 {
+    font-size: 1.6em;
+  }
+
+  .landing-subtitle {
+    font-size: 1em;
+  }
+}
+
+/** ========== Media Queries: Responsive Design ========== **/
+
+.text-box {
+  background-color: #e6f3ff;
+  border-left: 4px solid #4aa3df;
+  padding: 1em;
+  margin-top: 2em;
+  border-radius: 5px;
+}
+
+.zentriert {
+  max-width: 800px;
+  margin: 2em auto;
+}
+
+/** ========== Kontakt Seite ========== **/
+
+.kontakt-flexblock {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.kontakt-text {
+  flex: 1 1 65%;
+  box-sizing: border-box;
+}
+
+.kontakt-bild {
+  flex: 1 1 30%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.kontakt-bild img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .kontakt-flexblock {
+    flex-direction: column;
+  }
+
+  .kontakt-text,
+  .kontakt-bild {
+    flex: 1 1 100%;
+  }
+
+  .kontakt-bild img {
+    width: 100%;
+    max-height: none;
+  }
+}

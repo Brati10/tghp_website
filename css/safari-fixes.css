@@ -1,0 +1,151 @@
+/* Safari-spezifische Fixes */
+
+/* Safari-spezifische Font-Verbesserungen */
+@supports (-webkit-font-smoothing: antialiased) {
+  body {
+    /* Safari-spezifische Font-Fallback-Kette für bessere Kompatibilität */
+    font-family: "Brush Script MT", "Lucida Handwriting", "Apple Chancery", "Zapf Chancery", "Comic Sans MS", "Marker Felt", cursive !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-text-rendering: optimizeLegibility !important;
+  }
+}
+
+/* Safari-spezifische Navigation Fixes */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    appearance: none !important;
+    user-select: none !important;
+    position: relative !important;
+    z-index: 1002 !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    width: 30px !important;
+    height: 25px !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 5px !important;
+  }
+
+  .nav-toggle span {
+    display: block !important;
+    height: 3px !important;
+    background-color: #003366 !important;
+    border-radius: 2px !important;
+    transition: 0.3s ease !important;
+    transform-origin: center !important;
+    backface-visibility: hidden !important;
+    perspective: 1000px !important;
+    width: 100% !important;
+  }
+
+  .nav-menu {
+    -webkit-overflow-scrolling: touch !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+    backface-visibility: hidden !important;
+    perspective: 1000px !important;
+  }
+
+  .nav-menu.active {
+    display: flex !important;
+    -webkit-animation: slideDown 0.3s ease-out !important;
+    animation: slideDown 0.3s ease-out !important;
+  }
+
+  @-webkit-keyframes slideDown {
+    from {
+      opacity: 0;
+      -webkit-transform: translateY(-10px);
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .has-submenu .submenu {
+    display: block;
+    position: static;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0.5em 0 0.5em 1rem;
+  }
+
+  .submenu li a {
+    padding-left: 1.5rem;
+  }
+}
+
+/* Safari-spezifische Touch-Verbesserungen */
+* {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+}
+
+/* Safari-spezifische Button-Verbesserungen */
+button, .nav-toggle {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Safari-spezifische Hardware-Beschleunigung */
+.nav-toggle, .nav-menu, .nav-menu.active {
+  -webkit-transform: translateZ(0) !important;
+  transform: translateZ(0) !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  -webkit-perspective: 1000px !important;
+  perspective: 1000px !important;
+}
+
+/* Safari-spezifische Text-Verbesserungen */
+h1, h2, h3, p, span, div {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Safari-spezifische Animation-Verbesserungen */
+@-webkit-keyframes slideDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/* Safari-spezifische Flexbox-Verbesserungen */
+.flex-block, .nav-container, .nav-menu {
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-flex-align: center;
+  -webkit-flex-pack: center;
+} 
